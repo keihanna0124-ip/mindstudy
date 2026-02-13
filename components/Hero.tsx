@@ -9,50 +9,54 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ onStart }) => {
   return (
     <div className="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-      {/* Nature Orbs - Background decor */}
-      <div className="absolute -top-20 -left-20 w-[40rem] h-[40rem] bg-emerald-100/30 dark:bg-emerald-900/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-      <div className="absolute -bottom-20 -right-20 w-[35rem] h-[35rem] bg-indigo-100/30 dark:bg-indigo-900/10 rounded-full blur-[120px] -z-10 animate-pulse" style={{ animationDelay: '3s' }}></div>
+      {/* Decorative Floating Objects */}
+      <div className="absolute top-[15%] left-[10%] w-32 h-32 glass rounded-[2rem] opacity-20 animate-float -z-5 hidden lg:block"></div>
+      <div className="absolute bottom-[20%] right-[12%] w-40 h-40 glass rounded-full opacity-10 animate-float -z-5 hidden lg:block" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-[40%] right-[5%] w-24 h-24 glass rounded-3xl opacity-15 animate-float -z-5 hidden lg:block" style={{ animationDelay: '4s' }}></div>
 
-      <div className="max-w-5xl space-y-8 py-10">
-        <div className="flex flex-col items-center gap-4 animate-fade-in">
+      <div className="max-w-4xl space-y-6 py-6 relative z-10">
+        <div className="flex flex-col items-center gap-2 animate-fade-in">
           <Brain3D />
           
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/60 dark:bg-slate-900/40 border border-white dark:border-slate-800 text-indigo-600 dark:text-indigo-400 font-black text-xs uppercase tracking-widest shadow-xl">
-              <i className="fa-solid fa-leaf text-emerald-500"></i>
-              Học tập cân bằng cùng AI
+          <div className="space-y-4 overflow-visible">
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/20 dark:bg-slate-900/20 border border-white/20 dark:border-slate-800 text-indigo-600 dark:text-indigo-400 font-black text-xs uppercase tracking-widest shadow-xl backdrop-blur-md">
+              <i className="fa-solid fa-sparkles text-amber-400"></i>
+              Future of Personalized Learning
             </div>
-            <h1 className="text-6xl md:text-[7.5rem] font-black tracking-tighter text-slate-900 dark:text-white leading-[0.9] pb-6">
-              <span className="inline-block transform hover:scale-105 transition-transform duration-500 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent px-2">
+            <h1 className="text-6xl md:text-[6.5rem] font-black tracking-tighter text-slate-900 dark:text-white leading-none pb-12 overflow-visible flex justify-center">
+              <span className="inline-block transform hover:scale-105 transition-transform duration-700 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent px-10 py-4 drop-shadow-sm">
                 MindStudy
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 font-bold max-w-2xl mx-auto leading-tight italic">
-              "Khai phá tiềm năng - Làm chủ tri thức theo cách của riêng bạn"
+            <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 font-bold max-w-2xl mx-auto leading-relaxed italic opacity-80">
+              "Biến dữ liệu thành tri thức, biến đam mê thành lộ trình dẫn lối tương lai."
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-8 pt-4">
+        <div className="flex flex-col items-center gap-8 pt-6">
           <button 
             onClick={onStart}
-            className="px-16 py-6 bg-indigo-600 hover:bg-indigo-700 text-white rounded-[2.5rem] font-black text-2xl shadow-[0_20px_60px_-15px_rgba(79,70,229,0.5)] transition-all hover:scale-105 active:scale-95 flex items-center gap-6 group"
+            className="px-16 py-6 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-[2rem] font-black text-2xl shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-4 group relative overflow-hidden"
           >
-            Bắt đầu hành trình
-            <i className="fa-solid fa-arrow-right group-hover:translate-x-3 transition-transform"></i>
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span className="relative z-10">Bắt đầu hành trình</span>
+            <i className="fa-solid fa-bolt relative z-10 group-hover:animate-pulse"></i>
           </button>
           
-          <p className="text-slate-400 font-black text-[10px] uppercase tracking-[0.5em] animate-pulse">
-            Scroll to discover more
-          </p>
+          <div className="pt-4">
+             <p className="text-slate-400 font-black text-[10px] uppercase tracking-[0.5em] animate-pulse">
+                Sản phẩm trí tuệ sáng tạo
+             </p>
+          </div>
         </div>
       </div>
 
       <style>{`
-        .animate-fade-in { animation: fadeIn 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
+        .animate-fade-in { animation: fadeIn 2s cubic-bezier(0.19, 1, 0.22, 1); }
         @keyframes fadeIn { 
-          from { opacity: 0; transform: translateY(40px) scale(0.95); } 
-          to { opacity: 1; transform: translateY(0) scale(1); } 
+          from { opacity: 0; transform: translateY(60px); } 
+          to { opacity: 1; transform: translateY(0); } 
         }
       `}</style>
     </div>

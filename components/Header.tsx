@@ -24,37 +24,39 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection, isDark
           onClick={() => setActiveSection('home')}
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-indigo-400 rounded-xl blur-xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
-            <div className="relative w-12 h-12 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center text-white shadow-2xl transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
-              <i className="fa-solid fa-brain text-xl"></i>
+            <div className="absolute inset-0 bg-indigo-500 rounded-full blur-xl opacity-20 group-hover:opacity-50 transition-opacity"></div>
+            {/* Minimalist Professional Logo */}
+            <div className="relative w-11 h-11 bg-slate-900 dark:bg-white rounded-2xl flex items-center justify-center text-white dark:text-slate-900 shadow-xl transform group-hover:rotate-[10deg] transition-all duration-500 overflow-hidden">
+               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-purple-600 opacity-80"></div>
+               <i className="fa-solid fa-atom text-xl relative z-10 animate-spin-slow"></i>
             </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-2xl font-black tracking-tighter bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
+          <div className="flex flex-col pt-1 overflow-visible">
+            <span className="text-2xl font-black tracking-tighter bg-gradient-to-r from-slate-900 to-slate-500 dark:from-white dark:to-slate-400 bg-clip-text text-transparent leading-none pb-4 overflow-visible">
               MindStudy
             </span>
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center gap-2 bg-slate-100/50 dark:bg-slate-900/40 p-1.5 rounded-full backdrop-blur-xl border border-white/20">
+        <nav className="hidden md:flex items-center gap-2 bg-slate-100/30 dark:bg-slate-900/40 p-1.5 rounded-full backdrop-blur-3xl border border-white/10 shadow-inner">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveSection(item.id)}
-              className={`px-6 py-2.5 rounded-full text-sm font-black transition-all flex items-center gap-2 ${
+              className={`px-5 py-2.5 rounded-full text-xs font-black transition-all flex items-center gap-2 ${
                 activeSection === item.id 
-                  ? 'bg-white dark:bg-slate-800 text-indigo-600 shadow-xl scale-105' 
+                  ? 'bg-indigo-600 text-white shadow-lg scale-105' 
                   : 'text-slate-500 hover:text-indigo-400 dark:hover:text-slate-300'
               }`}
             >
-              <i className={`fa-solid ${item.icon} text-xs`}></i>
+              <i className={`fa-solid ${item.icon} text-[10px]`}></i>
               {item.label}
             </button>
           ))}
-          <div className="w-px h-6 bg-slate-300 dark:bg-slate-700 mx-2"></div>
+          <div className="w-px h-4 bg-slate-300 dark:bg-slate-700 mx-2"></div>
           <button
             onClick={toggleDarkMode}
-            className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 transition-all text-slate-500 hover:text-amber-500"
+            className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 transition-all text-slate-500"
           >
             <i className={`fa-solid ${isDarkMode ? 'fa-sun' : 'fa-moon'}`}></i>
           </button>
@@ -64,6 +66,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection, isDark
           <i className="fa-solid fa-bars-staggered"></i>
         </button>
       </div>
+      <style>{`
+        .animate-spin-slow { animation: spin 8s linear infinite; }
+      `}</style>
     </header>
   );
 };

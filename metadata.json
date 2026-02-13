@@ -1,0 +1,7 @@
+{
+  "name": "MindStudy Pro",
+  "description": "An AI-powered smart study assistant that personalizes learning paths, generates mind maps, and provides relaxation techniques using Gemini 3.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
